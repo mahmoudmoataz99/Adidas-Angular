@@ -9,5 +9,7 @@ import { Component } from '@angular/core';
   providers: []
 })
 export class HeroComponent {
-
+  alertFunction(){
+    alert("I'm HoozZzaa")
+  }
 }
