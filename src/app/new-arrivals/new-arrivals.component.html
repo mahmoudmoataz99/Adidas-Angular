@@ -1,0 +1,11 @@
+<main class="w-100 my-3 d-flex flex-column">
+  <h1 class="fw-bold mt-3 ms-5">New Arrivals</h1>
+
+  <section class="mb-1 p-4 w-100 row">
+    @for (product of items; track product.id) {
+    <app-single-item class="col-xl-3 mb-3 col-lg-4 col-md-6 col-sm-6 p-1 m-0" [product] = "product"></app-single-item>
+    }
+  </section>
+
+  <button (click)="viewAll()" class="btn btn-outline-dark fs-3 align-self-center">View {{showMore ? 'More' : 'Less'}}</button>
+</main>

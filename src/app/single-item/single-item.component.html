@@ -1,0 +1,15 @@
+<article [routerLink]="['/product', product.id]">
+  <a>
+    <img class="w-100" height="300px" [src]="product.photo" />
+  </a>
+  
+  <div class="mt-2 text-center" >
+    <h3>{{ product.name }}</h3>
+    
+    <p *ngIf="product.disc == false">{{ product.price | currency }}</p>
+    <p *ngIf="product.disc == true" class="">
+      <del class="text-danger me-2">{{ product.price | currency }}</del>
+      {{ product.priceAfterDisc | currency }}
+    </p>
+  </div>
+</article>

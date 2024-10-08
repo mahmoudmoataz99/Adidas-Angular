@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light bg-body px-4">
+  <a class="navbar-brand" routerLink="/">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" width="100px"/>
+  </a>
+
+  <form [formGroup]="searchForm" class="w-75 d-flex justify-content-center" (ngSubmit)="searchFunc()">
+    <input class="form-control px-3 mx-4 w-75 border border-3 border-black" type="search" formControlName="searchItem" placeholder="Search..."/>
+    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
+      <mat-icon class="mt-1">search</mat-icon>
+    </button>
+  </form>
+
+  <br />
+  
+  <ul class="w-100 d-flex justify-content-evenly mt-4 mb-0">
+    @for (gender of genders; track gender) {
+    <li style="list-style-type: none">
+      <a class="text-decoration-none fs-3 fw-bold" routerLinkActive="active" [routerLink]="['/cat', gender]">
+        {{ gender }}
+      </a>
+    </li>
+    }
+  </ul>
+</nav>

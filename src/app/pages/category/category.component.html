@@ -1,0 +1,7 @@
+<h1 class="text-center my-4 text-bg-warning py-3">{{gender}} Department</h1>
+
+<section class="mb-1 p-4 w-100 row">
+  @for (product of products; track product.id) {
+  <app-single-item class="col-xl-3 mb-3 col-lg-4 col-md-6 col-sm-6 p-1 m-0" [product]="product"></app-single-item>
+  }
+</section>

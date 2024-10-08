@@ -1,0 +1,11 @@
+<section class="container my-4">
+    <h3 class="text-black-50">Search Results for: <span class="text-black">{{search}}</span></h3>
+
+    <section class="mb-1 p-4 w-100 row">
+        @for (product of products; track product.id) {
+            @if (product.name.toLowerCase().includes(search?.toLowerCase())) {
+                <app-single-item class="col-xl-3 mb-3 col-lg-4 col-md-6 col-sm-6 p-1 m-0" [product]="product"></app-single-item>
+         }
+        }
+      </section>
+</section>

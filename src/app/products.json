@@ -1,0 +1,244 @@
+{
+    "items" : [
+        {
+            "id": 1,
+            "name": "Adidas 4DFWD",
+            "photo": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/61282bde6fa147b29110af56015324fd_9366/HP3131_01_standard.jpg",
+            "price": 3500,
+            "disc": false,
+            "priceAfterDisc": 2900,
+            "description": "Experience the ultimate comfort and style with the Adidas 4DFWD. Perfect for running and casual wear.",
+            "gender": "Unisex",
+            "type": "Running Shoes",
+            "availableSizes": [
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42
+            ],
+            "colorsAvailable": [
+                "Black",
+                "White",
+                "Gray"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Adidas XS MAX",
+            "photo": "https://assets.adidas.com/images/w_450,f_auto,q_auto/08196d954a94439cb83caf5c0099f104_9366/HP2609_00_plp_standard.jpg",
+            "price": 6000,
+            "disc": true,
+            "priceAfterDisc": 4800,
+            "description": "The Adidas XS MAX combines style and performance. Ideal for both gym workouts and everyday activities.",
+            "gender": "Men",
+            "type": "Training Shoes",
+            "availableSizes": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+            ],
+            "colorsAvailable": [
+                "Blue",
+                "Red",
+                "Gray"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "X_PLRBOOST SHOES",
+            "photo": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/70faf7eec09445199280debb01699fed_9366/4dfwd-4-running-shoes.jpg",
+            "price": 8500,
+            "disc": false,
+            "priceAfterDisc": 5100,
+            "description": "Step up your game with X_PLRBOOST SHOES. Designed for high performance and long-lasting comfort.",
+            "gender": "Women",
+            "type": "Running Shoes",
+            "availableSizes": [
+                36,
+                37,
+                38,
+                39,
+                40
+            ],
+            "colorsAvailable": [
+                "Pink",
+                "Black",
+                "White"
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Adidas 12 Pro",
+            "photo": "https://onvog.com/wp-content/uploads/2024/05/qwer01.webp",
+            "price": 10000,
+            "disc": true,
+            "priceAfterDisc": 8800,
+            "description": "Adidas 12 Pro offers premium support and style. Perfect for athletes and sports enthusiasts.",
+            "gender": "Men",
+            "type": "Football Boots",
+            "availableSizes": [
+                39,
+                40,
+                41,
+                42,
+                43,
+                44
+            ],
+            "colorsAvailable": [
+                "Black",
+                "White",
+                "Red"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Adidas 4DFWD",
+            "photo": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/61282bde6fa147b29110af56015324fd_9366/HP3131_01_standard.jpg",
+            "price": 3500,
+            "disc": false,
+            "priceAfterDisc": 0,
+            "description": "Experience the ultimate comfort and style with the Adidas 4DFWD. Perfect for running and casual wear.",
+            "gender": "Unisex",
+            "type": "Running Shoes",
+            "availableSizes": [
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42
+            ],
+            "colorsAvailable": [
+                "Black",
+                "White",
+                "Gray"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Adidas XS MAX",
+            "photo": "https://assets.adidas.com/images/w_450,f_auto,q_auto/08196d954a94439cb83caf5c0099f104_9366/HP2609_00_plp_standard.jpg",
+            "price": 6000,
+            "disc": true,
+            "priceAfterDisc": 4800,
+            "description": "The Adidas XS MAX combines style and performance. Ideal for both gym workouts and everyday activities.",
+            "gender": "Men",
+            "type": "Training Shoes",
+            "availableSizes": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+            ],
+            "colorsAvailable": [
+                "Blue",
+                "Red",
+                "Gray"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "X_PLRBOOST SHOES",
+            "photo": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/70faf7eec09445199280debb01699fed_9366/4dfwd-4-running-shoes.jpg",
+            "price": 8500,
+            "disc": false,
+            "priceAfterDisc": 5100,
+            "description": "Step up your game with X_PLRBOOST SHOES. Designed for high performance and long-lasting comfort.",
+            "gender": "Women",
+            "type": "Running Shoes",
+            "availableSizes": [
+                36,
+                37,
+                38,
+                39,
+                40
+            ],
+            "colorsAvailable": [
+                "Pink",
+                "Black",
+                "White"
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Adidas 12 Pro",
+            "photo": "https://onvog.com/wp-content/uploads/2024/05/qwer01.webp",
+            "price": 10000,
+            "disc": true,
+            "priceAfterDisc": 8800,
+            "description": "Adidas 12 Pro offers premium support and style. Perfect for athletes and sports enthusiasts.",
+            "gender": "Men",
+            "type": "Football Boots",
+            "availableSizes": [
+                39,
+                40,
+                41,
+                42,
+                43,
+                44
+            ],
+            "colorsAvailable": [
+                "Black",
+                "White",
+                "Red"
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Adidas Kids' UltraBoost",
+            "photo": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/4d31131033b54e67b045ab2f017c6cda_9366/FU7714_01_standard.jpg",
+            "price": 2500,
+            "disc": false,
+            "priceAfterDisc": 0,
+            "description": "The Adidas Kids' UltraBoost offers exceptional comfort and support for active kids. Ideal for school and play.",
+            "gender": "Kids",
+            "type": "Running Shoes",
+            "availableSizes": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33
+            ],
+            "colorsAvailable": [
+                "Blue",
+                "Red",
+                "Yellow"
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Adidas Kids' Superstar",
+            "photo": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/4d31131033b54e67b045ab2f017c6cda_9366/FU7714_01_standard.jpg",
+            "price": 2000,
+            "disc": true,
+            "priceAfterDisc": 1600,
+            "description": "Adidas Kids' Superstar combines classic style with comfort. Great for everyday wear and school activities.",
+            "gender": "Kids",
+            "type": "Casual Shoes",
+            "availableSizes": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33
+            ],
+            "colorsAvailable": [
+                "White",
+                "Black",
+                "Pink"
+            ]
+        }
+    ]
+}

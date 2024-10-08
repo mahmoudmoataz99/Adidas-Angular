@@ -1,0 +1,39 @@
+<hr />
+@for (index of item ; track item.id) {
+    <section class="container">
+        <h1 class="mb-4">{{index.name}}</h1>
+        <article class="row mt-2">
+          <img class="img-thumbnail col-xl-6 col-md-12" [src]="index.photo"/>
+          <div class="col-xl-1"></div>
+          <div class="col-xl-4 mt-2 col-md-12">
+            <p class="fs-4">
+              {{index.description}}
+            </p>
+            <ul style="list-style-type: none" class="d-flex w-75 justify-content-start">
+              @for (color of index.colorsAvailable; track color) {
+                  <li class="text-center mx-3">
+                      <div
+                        [style.backgroundColor]="color"
+                        class="mx-auto rounded-circle border border-3"
+                        style="width: 30px; height: 30px">
+                      </div>
+                    </li>
+              }
+            </ul>
+      
+            <ul style="list-style-type: none" class="w-75 d-flex justify-content-start">
+              @for (size of index.availableSizes; track size) {
+                  <p class="bg-white border border-1 mx-1 border-black fs-3 p-2">
+                      {{size}}
+                    </p>
+              }
+            </ul>
+            <h4 *ngIf="index.disc == false">{{ index.price | currency }}</h4>
+            <h4 *ngIf="index.disc == true" class=""> 
+              <del class="text-danger me-2">{{ index.price | currency }}</del>
+              {{ index.priceAfterDisc | currency }}
+            </h4>
+          </div>
+        </article>
+      </section>
+}
