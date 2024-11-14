@@ -1,0 +1,66 @@
+<article class="container my-4">
+  <table class="w-100 text-center table table-borderless">
+    <thead class="fs-4">
+      <th>Name</th>
+      <th>Photo</th>
+      <th>Color</th>
+      <th>Size</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total Price</th>
+      <th>Remove</th>
+    </thead>
+    <tbody class="mt-5">
+      @for (item of data; track data.id) {
+      <tr class="my-5">
+        <td class="align-middle">
+          <h3>
+            <a
+              class="form-control-plaintext text-decoration-none"
+              [routerLink]="['/product', item.id]"
+              >{{ item.name }}</a
+            >
+          </h3>
+        </td>
+        <td class="align-middle" class="py-3">
+          <img width="120px" height="150px" [src]="item.photo" />
+        </td>
+        <td class="align-middle">
+          <h3>{{ item.colorsAvailable[0] }}</h3>
+        </td>
+        <td class="align-middle">
+          <h3>{{ item.availableSizes[0] }}</h3>
+        </td>
+        <td class="align-middle"></td>
+        <td class="align-middle" *ngIf="item.disc == false">
+          <h3 >{{ item.price }}</h3>
+        </td>
+        <td class="align-middle" *ngIf="item.disc == true">
+          <h3>{{ item.priceAfterDisc }}</h3>
+        </td>
+        <td class="align-middle"></td>
+        <td class="align-middle">
+          <button (click)="deleteItem(item.id)" class="btn text-danger">
+            <mat-icon class="mt-1">close</mat-icon>
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <section class="w-25 p-4 my-4 rounded-3 border border-1 custom-section">
+    <div class="w-100 d-flex justify-content-between align-items-center mb-3">
+      <h3>Total Items</h3>
+      <p>{{'300' | currency}}</p>
+    </div>
+    <div class="w-100 d-flex justify-content-between align-items-center mb-3">
+      <h3>Delivery</h3>
+      <p>{{'30' | currency}}</p>
+    </div>
+    <div class="w-100 d-flex justify-content-between align-items-center mb-3">
+      <h3>Total Cost</h3>
+      <p>{{'330' | currency}}</p>
+    </div>
+    <button class="btn btn-outline-dark" (click)="checkout()">Checkout</button>
+</section>
+</article>

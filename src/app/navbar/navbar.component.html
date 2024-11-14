@@ -10,6 +10,12 @@
     </button>
   </form>
 
+@if(cartItems > 0){
+        <a class="d-inline-block text-dark" [routerLink]="['/cart']">
+          <mat-icon class="mt-2">shopping_bag</mat-icon>
+        </a>
+    }
+    
   <br />
   
   <ul class="w-100 d-flex justify-content-evenly mt-4 mb-0">

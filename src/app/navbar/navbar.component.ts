@@ -24,6 +24,7 @@ export class NavbarComponent {
   genders: Array<string>;
   genderSearch: string | null = null;
   searchForm: any;
+  cartItems:number = 5;
 
   constructor(private router: Router, private formBuilder: FormBuilder) {
     this.products = data.items;
