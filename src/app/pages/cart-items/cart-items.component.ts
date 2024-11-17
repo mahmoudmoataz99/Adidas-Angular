@@ -16,11 +16,13 @@ import { Router } from '@angular/router';
 
 export class CartItemsComponent implements OnInit {
   data: any;
+  totalCart:number = 0;
 
   constructor(private info: ProductsService, private router: Router) {}
 
   ngOnInit(): void {
     this.data = this.info.products;
+    this.data.map((element:any) => element.disc ? (this.totalCart+=element.quantity*element.priceAfterDisc) : (this.totalCart+=element.quantity*element.price));
   }
 
   deleteItem(id: any) {

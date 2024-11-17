@@ -8,12 +8,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [
-    MatIconModule,
-    NgIf, NgClass, NgFor,
-    RouterLink, RouterLinkActive,
-    ReactiveFormsModule
-  ],
+  imports: [MatIconModule,NgIf, NgClass, NgFor,RouterLink, RouterLinkActive,ReactiveFormsModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
@@ -34,8 +29,8 @@ export class NavbarComponent implements OnInit {
     this.allGenders = this.products.filter(
       (item) => item.gender !== 'Unisex'
     );
+    
     this.genders = [...new Set(this.allGenders.map((item) => item.gender))];
-
     this.searchForm = this.formBuilder.group({searchItem: ['', Validators.required],});
   }
 
