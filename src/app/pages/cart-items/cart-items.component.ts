@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [NgIf, NgFor, MatIconModule, RouterLink, CurrencyPipe],
   templateUrl: './cart-items.component.html',
-  styleUrls: ['./cart-items.component.css'] // Corrected styleUrls
+  styleUrls: ['./cart-items.component.css']
 })
 export class CartItemsComponent implements OnInit {
   cartItems: any[] = [];
@@ -22,7 +22,6 @@ export class CartItemsComponent implements OnInit {
 
   ngOnInit(): void {
     const storedOrderDetails = localStorage.getItem('orderDetails');
-    
     if (storedOrderDetails) {
       this.cartItems = JSON.parse(storedOrderDetails);
       this.calculateTotal();
@@ -31,6 +30,7 @@ export class CartItemsComponent implements OnInit {
     }
   }
 
+  // Calculate total cart price based on quantities
   calculateTotal(): void {
     this.totalCart = 0;
     this.cartItems.forEach((item: any) => {
@@ -42,15 +42,37 @@ export class CartItemsComponent implements OnInit {
     });
   }
 
+  // Remove an item from the cart
   removeFromCart(itemId: any): void {
     const index = this.cartItems.findIndex((item: any) => item.id === itemId);
     if (index !== -1) {
       this.cartItems.splice(index, 1);
-      localStorage.setItem('orderDetails', JSON.stringify(this.cartItems)); 
+      localStorage.setItem('orderDetails', JSON.stringify(this.cartItems));
       this.calculateTotal();
     }
   }
 
+  // Increase quantity of the product
+  increment(itemId: any): void {
+    const item = this.cartItems.find((item: any) => item.id === itemId);
+    if (item) {
+      item.quantity++;
+      localStorage.setItem('orderDetails', JSON.stringify(this.cartItems));
+      this.calculateTotal();
+    }
+  }
+
+  // Decrease quantity of the product
+  decrement(itemId: any): void {
+    const item = this.cartItems.find((item: any) => item.id === itemId);
+    if (item && item.quantity > 1) { // Prevent quantity from going below 1
+      item.quantity--;
+      localStorage.setItem('orderDetails', JSON.stringify(this.cartItems));
+      this.calculateTotal();
+    }
+  }
+
+  // Checkout function
   checkout(): void {
     Swal.fire({
       title: 'Order Confirmation',
@@ -59,6 +81,6 @@ export class CartItemsComponent implements OnInit {
       showCloseButton: true,
       showConfirmButton: false,
       timer: 1500
-    }).then(()=>localStorage.clear()).then(() => this.router.navigate(['/'])); 
+    }).then(() => localStorage.clear()).then(() => this.router.navigate(['/']));
   }
 }

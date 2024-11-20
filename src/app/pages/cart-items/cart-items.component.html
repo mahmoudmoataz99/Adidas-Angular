@@ -13,7 +13,6 @@
       </tr>
     </thead>
     <tbody class="mt-5">
-      <tr ngFor></tr>
       <tr *ngFor="let item of cartItems">
         <td class="align-middle">
           <h3>
@@ -26,19 +25,23 @@
           <img width="150px" height="150px" [src]="item.photo" alt="{{ item.name }} photo" />
         </td>
         <td class="align-middle">
-          <h3>{{ item.color }}</h3> <!-- Assuming color is stored as a single color string -->
+          <h3>{{ item.color }}</h3> 
         </td>
         <td class="align-middle">
-          <h3>{{ item.size }}</h3> <!-- Assuming size is a string value -->
+          <h3>{{ item.size }}</h3>
         </td>
         <td class="align-middle">
-          <h3>{{ item.quantity }}</h3>
+          <div class="d-flex w-100 justify-content-evenly">
+            <button (click)="increment(item.id)" class="btn btn-outline-dark">+</button>
+            <h3>{{ item.quantity }}</h3>
+            <button (click)="decrement(item.id)" class="btn btn-outline-dark">-</button>
+          </div>
         </td>
         <td class="align-middle">
-          <h3>{{ item.disc ? (item.priceAfterDisc | currency) : (item.price | currency) }}</h3>
+          <h3>{{ item.disc ? (item.priceAfterDisc) : (item.price) }}</h3>
         </td>
         <td class="align-middle">
-          <h3>{{ (item.disc ? item.priceAfterDisc : item.price) * item.quantity | currency }}</h3>
+          <h3>{{ (item.disc ? item.priceAfterDisc : item.price) * item.quantity }}</h3>
         </td>
         <td class="align-middle">
           <button (click)="removeFromCart(item.id)" class="btn text-danger">
@@ -84,5 +87,5 @@
 </article>
 
 <article class="container my-5 text-center" *ngIf="cartItems.length == 0">
-  <h1>No items in cart</h1>
+  <h1 class="my-5">No items in cart</h1>
 </article>
