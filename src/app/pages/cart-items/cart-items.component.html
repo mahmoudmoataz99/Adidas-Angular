@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <article class="container my-4" *ngIf="cartItems.length > 0">
-=======
-<article class="container my-4">
->>>>>>> 1113dd87c1cde933116c2c593544a53e8dcbb1a8
   <table class="w-100 text-center table">
     <thead class="fs-4">
       <tr>
@@ -17,13 +13,8 @@
       </tr>
     </thead>
     <tbody class="mt-5">
-<<<<<<< HEAD
       <tr ngFor></tr>
       <tr *ngFor="let item of cartItems">
-=======
-      @for (item of data; track item.id) {
-      <tr class="my-5">
->>>>>>> 1113dd87c1cde933116c2c593544a53e8dcbb1a8
         <td class="align-middle">
           <h3>
             <a class="form-control-plaintext text-decoration-none" [routerLink]="['/product', item.id]">
@@ -31,13 +22,8 @@
             </a>
           </h3>
         </td>
-<<<<<<< HEAD
         <td class="align-middle">
           <img width="150px" height="150px" [src]="item.photo" alt="{{ item.name }} photo" />
-=======
-        <td class="align-middle" class="py-3">
-          <img width="" height="150px" [src]="item.photo" />
->>>>>>> 1113dd87c1cde933116c2c593544a53e8dcbb1a8
         </td>
         <td class="align-middle">
           <h3>{{ item.color }}</h3> <!-- Assuming color is stored as a single color string -->
@@ -45,18 +31,6 @@
         <td class="align-middle">
           <h3>{{ item.size }}</h3> <!-- Assuming size is a string value -->
         </td>
-<<<<<<< HEAD
-=======
-        <td class="align-middle"><h3>{{ item.quantity }}</h3></td>
-        <td class="align-middle" *ngIf="item.disc == false">
-          <h3 >{{ item.price }}</h3>
-        </td>
-        <td class="align-middle" *ngIf="item.disc == true">
-          <h3>{{ item.priceAfterDisc }}</h3>
-        </td>
-        <td class="align-middle" *ngIf="item.disc == false"><h3>{{ item.quantity *  item.price}}</h3></td>
-        <td class="align-middle" *ngIf="item.disc == true"><h3>{{ item.quantity *  item.priceAfterDisc}}</h3></td>
->>>>>>> 1113dd87c1cde933116c2c593544a53e8dcbb1a8
         <td class="align-middle">
           <h3>{{ item.quantity }}</h3>
         </td>
@@ -74,7 +48,6 @@
       </tr>
     </tbody>
   </table>
-<<<<<<< HEAD
 
   <div class="d-flex">
     <section class="w-75">
@@ -107,25 +80,6 @@
       </div>
       <button class="btn btn-outline-dark" (click)="checkout()">Checkout</button>
     </section>
-=======
-  <div class="d-flex">
-    <section class="w-75"></section>
-  <section class="w-25 p-4 my-4 rounded-3 border border-1 custom-section">
-    <div class="w-100 d-flex justify-content-between align-items-center mb-3">
-      <h3>Total Items</h3>
-      <p>{{totalCart | currency}}</p>
-    </div>
-    <div class="w-100 d-flex justify-content-between align-items-center mb-3">
-      <h3>Delivery</h3>
-      <p>{{'30' | currency}}</p>
-    </div>
-    <div class="w-100 d-flex justify-content-between align-items-center mb-3">
-      <h3>Total Cost</h3>
-      <p>{{totalCart+30 | currency}}</p>
-    </div>
-    <button class="btn btn-outline-dark" (click)="checkout()">Checkout</button>
-  </section>
->>>>>>> 1113dd87c1cde933116c2c593544a53e8dcbb1a8
   </div>
 </article>
 

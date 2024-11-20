@@ -14,18 +14,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart-items.component.css'] // Corrected styleUrls
 })
 export class CartItemsComponent implements OnInit {
-<<<<<<< HEAD
   cartItems: any[] = [];
   totalCart: number = 0;
-=======
   data: any;
-  totalCart:number = 0;
->>>>>>> 1113dd87c1cde933116c2c593544a53e8dcbb1a8
 
   constructor(private info: ProductsService, private router: Router) {}
 
   ngOnInit(): void {
-<<<<<<< HEAD
     const storedOrderDetails = localStorage.getItem('orderDetails');
     
     if (storedOrderDetails) {
@@ -34,10 +29,6 @@ export class CartItemsComponent implements OnInit {
     } else {
       this.cartItems = [];
     }
-=======
-    this.data = this.info.products;
-    this.data.map((element:any) => element.disc ? (this.totalCart+=element.quantity*element.priceAfterDisc) : (this.totalCart+=element.quantity*element.price));
->>>>>>> 1113dd87c1cde933116c2c593544a53e8dcbb1a8
   }
 
   calculateTotal(): void {
