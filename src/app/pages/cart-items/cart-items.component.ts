@@ -9,44 +9,55 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart-items',
   standalone: true,
-  imports: [NgIf,NgFor,MatIconModule,RouterLink,CurrencyPipe],
+  imports: [NgIf, NgFor, MatIconModule, RouterLink, CurrencyPipe],
   templateUrl: './cart-items.component.html',
-  styleUrl: './cart-items.component.css'
+  styleUrls: ['./cart-items.component.css'] // Corrected styleUrls
 })
-
 export class CartItemsComponent implements OnInit {
-  data: any;
-  totalCart:number = 0;
+  cartItems: any[] = [];
+  totalCart: number = 0;
 
   constructor(private info: ProductsService, private router: Router) {}
 
   ngOnInit(): void {
-    this.data = this.info.products;
-    this.data.map((element:any) => element.disc ? (this.totalCart+=element.quantity*element.priceAfterDisc) : (this.totalCart+=element.quantity*element.price));
+    const storedOrderDetails = localStorage.getItem('orderDetails');
+    
+    if (storedOrderDetails) {
+      this.cartItems = JSON.parse(storedOrderDetails);
+      this.calculateTotal();
+    } else {
+      this.cartItems = [];
+    }
   }
 
-  deleteItem(id: any) {
-    const x = this.data.findIndex((per: any) => per.id === id),
-    name = this.data.find((ind: any) => ind.id === id)?.name;
-    this.data.splice(x, 1);
-  
+  calculateTotal(): void {
+    this.totalCart = 0;
+    this.cartItems.forEach((item: any) => {
+      if (item.disc) {
+        this.totalCart += item.quantity * item.priceAfterDisc;
+      } else {
+        this.totalCart += item.quantity * item.price;
+      }
+    });
+  }
+
+  removeFromCart(itemId: any): void {
+    const index = this.cartItems.findIndex((item: any) => item.id === itemId);
+    if (index !== -1) {
+      this.cartItems.splice(index, 1);
+      localStorage.setItem('orderDetails', JSON.stringify(this.cartItems)); 
+      this.calculateTotal();
+    }
+  }
+
+  checkout(): void {
     Swal.fire({
-      title: 'Deleted',
-      text: `${name} is removed from cart`,
+      title: 'Order Confirmation',
+      text: 'Order 6546842286 has been confirmed',
       icon: 'success',
       showCloseButton: true,
       showConfirmButton: false,
-      timer: 1000
-      });
-  }
-  
-
-  checkout() {
-    Swal.fire({
-      title: 'Order Confirmation',
-      text: 'Order 664178915 is confirmed',
-      icon: 'success',
-      showCloseButton: true,showConfirmButton: false,timer: 1500
-    }).then(() => this.router.navigate(['/']));
+      timer: 1500
+    }).then(()=>localStorage.clear()).then(() => this.router.navigate(['/'])); 
   }
 }

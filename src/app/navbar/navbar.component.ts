@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = data.items;
-    this.cartItems = this.products.length;
+    this.cartItems = localStorage.getItem('orderDetails');
     this.allGenders = this.products.filter(
       (item) => item.gender !== 'Unisex'
     );

@@ -32,7 +32,7 @@
       </ul>
 
       <h4 *ngIf="!item[0].disc">{{ item[0].price | currency }}</h4>
-      <h4 *ngIf="item[0].disc" class="">
+      <h4 *ngIf="item[0].disc">
         <del class="text-danger me-2">{{ item[0].price | currency }}</del>
         {{ item[0].priceAfterDisc | currency }}
       </h4>

@@ -37,35 +37,61 @@ export class ProductComponent implements OnInit {
   selectSize = (size: string) => this.selectedSize = size; 
   
   addToCart() {
-    if (this.selectedSize && this.selectedColor != null && this.quantity != 0){
-      this.orderDetails.push({
-        "id": this.productId,
-        "size": this.selectedSize,
-        "color": this.selectedColor,
-        "quantity": this.quantity,
-      });
-      console.log(this.orderDetails);
+    if (this.selectedSize && this.selectedColor && this.quantity > 0) {
+      
+      let orderDetails = JSON.parse(localStorage.getItem('orderDetails') || '[]');
+      
+      // Add the new item to the orderDetails array
+      if(this.item[0].disc == true){
+        orderDetails.push({
+          id: this.productId,
+          photo:this.item[0].photo,
+          name: this.item[0].name,
+          price: this.item[0].priceAfterDisc,
+          size: this.selectedSize,
+          total:(this.item[0].priceAfterDisc*this.quantity),
+          color: this.selectedColor,
+          quantity: this.quantity
+        });
+      } else{
+        orderDetails.push({
+          id: this.productId,
+          photo:this.item[0].photo,
+          name: this.item[0].name,
+          price: this.item[0].price,
+          size: this.selectedSize,
+          total: (this.item[0].price*this.quantity),
+          color: this.selectedColor,
+          quantity: this.quantity
+        });
+      }
+  
+      localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
+  
       Swal.fire({
         title: 'Success',
         text: 'Item added to cart',
         icon: 'success',
-        showCloseButton:true,
-        showConfirmButton:false,
-        timer:1000
-      }).then(()=>{
-      this.selectedSize = '';
-      this.selectedColor = '';
-      this.quantity = 0;
+        showCloseButton: true,
+        showConfirmButton: false,
+        timer: 1000
+      }).then(() => {
+        this.selectedSize = '';
+        this.selectedColor = '';
+        this.quantity = 0;
       });
-    }else{
+      
+    } else {
       Swal.fire({
-        title: 'failed',
-        text: 'Item not added to cart',
+        title: 'Failed',
+        text: 'Item not added to cart. Please select size, color, and quantity.',
         icon: 'error',
-        showCloseButton:true,
-        showConfirmButton:false,
-        timer:1000
+        showCloseButton: true,
+        showConfirmButton: false,
+        timer: 1000
       });
     }
   }
+  
+  
 }
