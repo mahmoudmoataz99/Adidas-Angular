@@ -1,4 +1,4 @@
-<section id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+<section id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img class="w-100 h-100" height="600px" src="https://www.adidas.com.eg/dw/image/v2/BFNL_PRD/on/demandware.static/-/Library-Sites-AdidasSharedLibrary/default/dwd3daecf9/MENA_Local_Activations/em-eg-alahly-hp-mh-d.jpg" class="d-block w-100" alt="First Slide">
@@ -9,20 +9,17 @@
       </div>
       <div class="carousel-item">
         <img class="w-100 h-100" height="600px" src="https://www.adidas.com.eg/dw/image/v2/BFNL_PRD/on/demandware.static/-/Library-Sites-AdidasSharedLibrary/ar/dw72f6d24d/em-emc-adiclubdays-hp-mh-d-new.jpg" class="d-block w-100" alt="Second Slide">
-        <div class="carousel-caption w-25 h-100 d-flex flex-column justify-content-center align-items-start">
+        <div class="carousel-caption w-25 h-100 d-flex flex-column justify-content-end align-items-start">
           <h1 class="fw-bold">Get 40% Off</h1>
-          <button class="bg-white p-3 fs-1 border border-5 border-black align-self-center">Shop Now</button>
+          <button class="bg-white p-3 fs-1 border border-5 border-black align-self-center" (click)="alertFunc()">Shop Now</button>
         </div>
       </div>
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+      <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
     </button>
   </section>
-  
-  

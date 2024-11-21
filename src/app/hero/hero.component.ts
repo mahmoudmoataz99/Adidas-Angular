@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-hero',
   standalone: true,
@@ -8,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./hero.component.css'],
   providers: []
 })
+
 export class HeroComponent {
-alertFunc = () => alert("I'm 7ooozaaa");
+alertFunc () {
+   alert("I'm 7ooozaaa");
+  }
 }

@@ -1,5 +1,5 @@
 <article class="container my-4" *ngIf="cartItems.length > 0">
-  <table class="w-100 text-center table">
+  <table class="text-center table">
     <thead class="fs-4">
       <tr>
         <th>Name</th>
@@ -7,71 +7,78 @@
         <th>Color</th>
         <th>Size</th>
         <th>Quantity</th>
-        <th>Price</th>
-        <th>Total Price</th>
+        <th class="d-xxl-table-cell d-lg-table-cell d-md-none d-sm-none">Price</th>
+        <th>Total</th>
         <th>Remove</th>
       </tr>
     </thead>
-    <tbody class="mt-5">
+    <tbody>
       <tr *ngFor="let item of cartItems">
-        <td class="align-middle">
-          <h3>
+        <td class="align-middle fw-bold">
             <a class="form-control-plaintext text-decoration-none" [routerLink]="['/product', item.id]">
               {{ item.name }}
             </a>
-          </h3>
         </td>
-        <td class="align-middle">
-          <img width="150px" height="150px" [src]="item.photo" alt="{{ item.name }} photo" />
+        <td class="align-middle fw-bold">
+          <img width="150px" height="150px" [src]="item.photo" class="img-fluid" alt="{{ item.name }} photo" />
         </td>
-        <td class="align-middle">
-          <h3>{{ item.color }}</h3> 
+        <td class="align-middle fw-bold">
+          {{ item.color }}
         </td>
-        <td class="align-middle">
-          <h3>{{ item.size }}</h3>
+        <td class="align-middle fw-bold">
+          {{ item.size }}
         </td>
-        <td class="align-middle">
-          <div class="d-flex w-100 justify-content-evenly">
+        <td class="align-middle fw-bold">
+          <div class="d-flex w-100 align-items-center justify-content-center">
             <button (click)="increment(item.id)" class="btn btn-outline-dark">+</button>
-            <h3>{{ item.quantity }}</h3>
+            <p class="px-3 mt-3">{{ item.quantity }}</p>
             <button (click)="decrement(item.id)" class="btn btn-outline-dark">-</button>
           </div>
         </td>
-        <td class="align-middle">
-          <h3>{{ item.disc ? (item.priceAfterDisc) : (item.price) }}</h3>
+        <td class="align-middle fw-bold d-xxl-table-cell d-lg-table-cell d-md-none d-sm-none">
+          {{ item.disc ? item.priceAfterDisc : item.price  }}
         </td>
-        <td class="align-middle">
-          <h3>{{ (item.disc ? item.priceAfterDisc : item.price) * item.quantity }}</h3>
+        <td class="align-middle fw-bold">
+          {{ (item.disc ? item.priceAfterDisc : item.price) * item.quantity  }}
         </td>
-        <td class="align-middle">
-          <button (click)="removeFromCart(item.id)" class="btn text-danger">
-            <mat-icon class="mt-1">close</mat-icon>
-          </button>
+        <td class="align-middle fw-bold">
+          <button (click)="removeFromCart(item.id)" class="btn text-danger"><mat-icon class="mt-1">close</mat-icon></button>
         </td>
       </tr>
     </tbody>
   </table>
 
-  <div class="d-flex">
-    <section class="w-75">
+  <section class="row">
+    <div class="col-xxl-8 col-lg-6">
       <form class="w-100">
         <section class="d-flex justify-content-around my-5">
-            <div><label>Full Name</label><input required class="form-control" type="text" ></div>
-            <div><label>Mail</label><input required class="form-control" type="email" ></div>
-            <div><label>Phone Number</label><input required class="form-control" type="tel" ></div>
+            <div><label>Full Name</label><input required class="form-control w-75" type="text" ></div>
+            <div><label>Mail</label><input required class="form-control w-75" type="email" ></div>
+            <div><label>Phone</label><input required class="form-control w-75" type="tel" ></div>
         </section>
         <section class="d-flex justify-content-around my-5">
-          <div><label>Area</label><input required class="form-control" type="text" ></div>
-          <div><label>Street</label><input required class="form-control" type="text" ></div>
-          <div><label>Building</label><input required class="form-control" type="text" ></div>
-          <div><label>Floor</label><input required class="form-control" type="number" min="0"></div>
+          <div>
+            <label>Area</label>
+            <input required class="form-control w-75" type="text" >
+          </div>
+          <div>
+            <label>Street</label><input required class="form-control w-75" type="text" >
+          </div>
+          <div>
+            <label>Building</label>
+            <input required class="form-control w-75" type="number" >
+          </div>
+          <div>
+            <label>Floor</label>
+            <input required class="form-control w-75" type="number" min="0">
+          </div>
         </section>
       </form>
-    </section>
-    <section class="w-25 p-4 my-4 rounded-3 border border-1 custom-section">
+    </div>
+    <div class="col-xxl-4 col-lg-6 p-4 my-4 rounded-3 border border-1 custom-section">
       <div class="w-100 d-flex justify-content-between align-items-center mb-3">
         <h3>Total Items</h3>
-        <p>{{ totalCart | currency }}</p>
+        <p>{{ totalCart | currency }}</p> 
       </div>
       <div class="w-100 d-flex justify-content-between align-items-center mb-3">
         <h3>Delivery</h3>
@@ -79,13 +86,13 @@
       </div>
       <div class="w-100 d-flex justify-content-between align-items-center mb-3">
         <h3>Total Cost</h3>
-        <p>{{ totalCart + 30 | currency }}</p>
+        <p>{{ totalCart + 30 | currency }}</p> 
       </div>
       <button class="btn btn-outline-dark" (click)="checkout()">Checkout</button>
-    </section>
-  </div>
+    </div>
+  </section>
 </article>
 
 <article class="container my-5 text-center" *ngIf="cartItems.length == 0">
-  <h1 class="my-5">No items in cart</h1>
+  <h1 class="my-5 text-danger">No items in cart</h1>
 </article>
